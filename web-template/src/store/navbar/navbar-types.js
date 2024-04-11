@@ -1,0 +1,3 @@
+export const NAV_ACTION_TYPES = {
+  SET_IS_MENU_OPEN: "SET_IS_MENU_OPEN",
+};
