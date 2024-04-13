@@ -12,6 +12,10 @@ const MiddleNav = () => {
 
   return (
     <div className={isMenuOpen ? "navbar-middle show" : "navbar-middle"}>
+      <Link to={APP_PATH.root} className="mobile-nav-logo">
+        <h2>ChatCord</h2>
+      </Link>
+
       <ul className="navbar-links">
         <li>
           <Link className="nav-link" to={APP_PATH.general.about}>

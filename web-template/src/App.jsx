@@ -6,14 +6,18 @@ import NotFound from "./pages/errors/NotFound";
 
 import Navigation from "./components/nav/Navigation";
 import ScrollToTop from "./utils/ScrollToTop";
+import DisableContainer from "./components/disable/DisableContainer";
+import Footer from "./components/footer/Footer";
+import ScrollUp from "./components/scrollUp/ScrollUp";
 import Spinner from "./components/spinner/Spinner";
 
 import "./App.scss";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <ScrollToTop>
+        <DisableContainer />
         <Routes>
           <Route path="/" element={<Navigation />}>
             <Route index element={<Home />} />
@@ -22,8 +26,10 @@ function App() {
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Routes>
+        <Footer />
+        <ScrollUp />
       </ScrollToTop>
-    </>
+    </div>
   );
 }
 
