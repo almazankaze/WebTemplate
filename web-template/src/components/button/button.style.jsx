@@ -29,7 +29,8 @@ export const BaseButton = styled.button`
   }
 
   &.full-btn {
-    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
     margin: 0.75rem 0 1.5rem;
   }
 

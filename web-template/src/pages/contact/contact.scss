@@ -1,0 +1,156 @@
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-form {
+  width: 520px;
+  background-color: var(--gray-200);
+  padding: 2.5rem 1rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.contact-form form {
+  width: 320px;
+}
+
+form .contact-input {
+  position: relative;
+  border-bottom: 2px solid var(--gray-600);
+  margin: 2rem 0;
+}
+
+.contact-input:focus-within {
+}
+
+.contact-input input {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  color: var(--secondary-color);
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.contact-input label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: var(--gray-600);
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: 0.4s ease-in-out;
+}
+
+.contact-input span::after {
+  content: "";
+  display: block;
+  margin: 0.125rem auto 0;
+  position: absolute;
+  top: 38px;
+  left: 0;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  background: var(--secondary-color);
+  transition: transform 0.3s ease;
+}
+
+.contact-input input:focus ~ label,
+.contact-input input:valid ~ label {
+  top: -5px;
+  color: var(--secondary-color);
+  font-size: 0.75rem;
+}
+
+.contact-input input:focus ~ span::after,
+.contact-input input:valid ~ span::after {
+  transform: scaleX(1);
+}
+
+.contact-message {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  margin: 1rem 0;
+  background-color: var(--gray-100);
+  border: 2px solid var(--gray-600);
+  border-radius: 10px;
+  outline: none;
+  transition: border 0.2s linear;
+}
+
+.contact-message:focus {
+  border: 2px solid var(--secondary-color);
+}
+
+.contact-error {
+  color: var(--error);
+  font-size: 0.813rem;
+}
+
+.contact-info-container {
+}
+
+.contact-info {
+  display: flex;
+  margin: 0.5rem 0;
+  align-items: center;
+}
+
+.contact-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.contact-info-text {
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 992px) {
+  .contact-form {
+    width: 420px;
+  }
+}
+
+@media (max-width: 800px) {
+  .contact {
+    flex-direction: column-reverse;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+
+  .contact-form form {
+    width: 420px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-form form {
+    width: 280px;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-form {
+    background-color: var(--gray-100);
+    padding: 2.5rem 0;
+    border: 1px solid var(--gray-100);
+    border-radius: 0;
+  }
+
+  .contact-form form {
+    width: 250px;
+  }
+}

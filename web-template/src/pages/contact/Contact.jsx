@@ -41,51 +41,56 @@ const Contact = () => {
       <SectionHeader title="Contact Us" />
 
       <div className="contact">
-        <form autoComplete="off" noValidate>
-          <>
-            <div className="contact-input">
-              <input
-                type="text"
-                name="name"
+        <div className="contact-form">
+          <form autoComplete="off" noValidate>
+            <>
+              <div className="contact-input">
+                <input
+                  type="text"
+                  name="name"
+                  onChange={handleSave}
+                  value={formData.name}
+                  required
+                />
+                <span></span>
+                <label>Name</label>
+              </div>
+              <div className="contact-error">"must enter your name"</div>
+              <div className="contact-input">
+                <input
+                  type="text"
+                  name="email"
+                  onChange={handleSave}
+                  value={formData.email}
+                  required
+                />
+                <span></span>
+                <label>Email</label>
+              </div>
+
+              <div className="contact-error">
+                "must enter valid email format"
+              </div>
+
+              <textarea
+                className="contact-message"
+                name="message"
+                placeholder="Type message here..."
+                value={formData.message}
                 onChange={handleSave}
-                value={formData.name}
-                required
-              />
-              <span></span>
-              <label>Name</label>
-            </div>
-            <div className="contact-error">"must enter your name"</div>
-            <div className="contact-input">
-              <input
-                type="text"
-                name="email"
-                onChange={handleSave}
-                value={formData.email}
-                required
-              />
-              <span></span>
-              <label>Email</label>
-            </div>
+              ></textarea>
 
-            <div className="contact-error">"must enter valid email format"</div>
+              <div className="contact-error">
+                "Comment Box is not allowed to be empty"
+              </div>
+            </>
 
-            <textarea
-              className="contact-message"
-              name="message"
-              placeholder="Type message here..."
-              value={formData.message}
-              onChange={handleSave}
-            ></textarea>
+            <Button type="button" className="full-btn" onClick={handleSubmit}>
+              Send
+            </Button>
+          </form>
+        </div>
 
-            <div className="contact-error">
-              Comment Box is not allowed to be empty
-            </div>
-          </>
-
-          <Button type="button" className="full-btn" onClick={handleSubmit}>
-            Send
-          </Button>
-        </form>
         <div className="contact-info-container">
           <div className="contact-info">
             <h2 className="contact-title">ChatCord</h2>
