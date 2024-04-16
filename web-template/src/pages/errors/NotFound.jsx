@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import Button, { BUTTON_TYPE_CLASSES } from "../../components/button/Button";
 
+import { APP_PATH } from "../../utils/paths";
+
 import "./error-page.scss";
 
 const NotFound = () => {
@@ -8,6 +10,10 @@ const NotFound = () => {
 
   const goToHomeHandler = () => {
     navigate("/");
+  };
+
+  const goToContactHandler = () => {
+    navigate(APP_PATH.general.contact);
   };
 
   return (
@@ -28,6 +34,7 @@ const NotFound = () => {
           className="long-btn"
           type="button"
           buttonType={BUTTON_TYPE_CLASSES.clear}
+          onClick={goToContactHandler}
         >
           Contact Us
         </Button>

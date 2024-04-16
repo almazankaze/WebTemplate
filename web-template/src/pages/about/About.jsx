@@ -7,7 +7,7 @@ import "./about.scss";
 
 const About = () => {
   return (
-    <section className="container page-container">
+    <div className="container page-container">
       <SectionHeader title="About Us" />
       <div className="about-section">
         <div className="about-text">
@@ -59,7 +59,7 @@ const About = () => {
           <h4 align="right">-Ipsum Gibbus</h4>
         </blockquote>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -18,34 +18,29 @@ const MiddleNav = () => {
 
       <ul className="navbar-links">
         <li>
+          <Link className="nav-link" to="/#Discover">
+            Discover
+          </Link>
+        </li>
+        <li>
+          <Link className="nav-link" to="/#Products">
+            Products
+          </Link>
+        </li>
+
+        <li>
+          <Link className="nav-link" to="/#Gallery">
+            Gallery
+          </Link>
+        </li>
+        <li>
           <Link className="nav-link" to={APP_PATH.general.about}>
             About
           </Link>
         </li>
         <li>
-          <Link className="nav-link" to="/">
-            Discover
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link" to="/">
-            Safety
-          </Link>
-        </li>
-
-        <li>
-          <Link className="nav-link" to="/">
-            Support
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link" to="/">
-            Blog
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link" to="/">
-            Careers
+          <Link className="nav-link" to={APP_PATH.general.contact}>
+            Contact Us
           </Link>
         </li>
       </ul>

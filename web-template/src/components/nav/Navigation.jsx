@@ -12,6 +12,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MiddleNav from "./MiddleNav";
 
 import "./nav.scss";
+import ScrollToAnchor from "../../utils/ScrollToAnchor";
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -56,6 +57,7 @@ const Navigation = () => {
           </div>
         </div>
       </nav>
+      <ScrollToAnchor />
       <Outlet />
     </Fragment>
   );

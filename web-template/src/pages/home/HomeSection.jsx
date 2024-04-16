@@ -1,9 +1,10 @@
 import SectionHeader from "../../components/section-header/SectionHeader";
 
-const HomeSection = ({ sectionTitle = "Home Section" }) => {
+const HomeSection = ({ children, sectionTitle = "Home Section" }) => {
   return (
-    <section>
+    <section id={sectionTitle}>
       <SectionHeader title={sectionTitle} />
+      {children}
     </section>
   );
 };

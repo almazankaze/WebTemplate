@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -40,38 +42,35 @@ function Footer() {
           <div className="footer-col">
             <h4 className="footer-heading">Useful Links</h4>
             <div className="footer-links">
-              <div className="footer-link">
-                <p>Terms & Conditions</p>
+              <div className="footer-link-container">
+                <Link to="/" className="footer-link">
+                  New Products
+                </Link>
               </div>
-              <div className="footer-link">
-                <p>New Products</p>
+              <div className="footer-link-container">
+                <Link to="/" className="footer-link">
+                  Services
+                </Link>
               </div>
-              <div className="footer-link">
-                <p>Best sales</p>
+              <div className="footer-link-container">
+                <Link to="/" className="footer-link">
+                  Delivery
+                </Link>
               </div>
-              <div className="footer-link">
-                <p>Secure payment</p>
+              <div className="footer-link-container">
+                <Link to="/" className="footer-link">
+                  About us
+                </Link>
               </div>
-              <div className="footer-link">
-                <p>Services</p>
+              <div className="footer-link-container">
+                <Link to="/" className="footer-link">
+                  Careers
+                </Link>
               </div>
-              <div className="footer-link">
-                <p>Delivery</p>
-              </div>
-              <div className="footer-link">
-                <p>Legal Notice</p>
-              </div>
-              <div className="footer-link">
-                <p>About us</p>
-              </div>
-              <div className="footer-link">
-                <p>Careers</p>
-              </div>
-              <div className="footer-link">
-                <p>Contact us</p>
-              </div>
-              <div className="footer-link">
-                <p>Stores</p>
+              <div className="footer-link-container">
+                <Link to="/" className="footer-link">
+                  Contact us
+                </Link>
               </div>
             </div>
           </div>
