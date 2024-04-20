@@ -116,6 +116,12 @@ form .contact-input {
   margin-left: 0.5rem;
 }
 
+.contact-info-socials {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
 @media (max-width: 992px) {
   .contact-form {
     width: 420px;

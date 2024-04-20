@@ -1,6 +1,10 @@
 import { useState } from "react";
+import Joi from "joi-browser";
 import SectionHeader from "../../components/section-header/SectionHeader";
-import Button, { BUTTON_TYPE_CLASSES } from "../../components/button/Button";
+import Button from "../../components/button/Button";
+import SocialIcon, {
+  SOCIAL_TYPE_CLASSES,
+} from "../../components/social-icon/SocialIcon";
 
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -15,12 +19,24 @@ const Contact = () => {
     message: "",
   });
 
+  const [errors, setErrors] = useState({});
+
+  const schema = {
+    email: Joi.string().email().required(),
+    name: Joi.string().optional().allow(""),
+    message: Joi.string().required(),
+  };
+
   const handleSave = (event) => {
     const { name, value } = event.target;
+
+    let errorData = { ...errors };
+    delete errorData[name];
 
     let data = { ...formData };
     data[name] = value;
     setFormData(data);
+    setErrors(errorData);
   };
 
   const clearState = () => {
@@ -29,11 +45,30 @@ const Contact = () => {
       email: "",
       message: "",
     });
+
+    setErrors({});
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    clearState();
+
+    const result = Joi.validate(formData, schema, { abortEarly: false });
+
+    console.log(result);
+    const { error } = result;
+
+    if (!error) {
+      clearState();
+    } else {
+      const errorData = {};
+      for (let item of error.details) {
+        const name = item.path[0];
+        const message = item.message;
+        errorData[name] = message;
+      }
+      setErrors(errorData);
+      return errorData;
+    }
   };
 
   return (
@@ -55,7 +90,9 @@ const Contact = () => {
                 <span></span>
                 <label>Name</label>
               </div>
-              <div className="contact-error">"must enter your name"</div>
+              {errors.name && (
+                <div className="contact-error">"must enter your name"</div>
+              )}
               <div className="contact-input">
                 <input
                   type="text"
@@ -68,9 +105,9 @@ const Contact = () => {
                 <label>Email</label>
               </div>
 
-              <div className="contact-error">
-                "must enter valid email format"
-              </div>
+              {errors.email && (
+                <div className="contact-error">"must enter an email"</div>
+              )}
 
               <textarea
                 className="contact-message"
@@ -80,9 +117,11 @@ const Contact = () => {
                 onChange={handleSave}
               ></textarea>
 
-              <div className="contact-error">
-                "Comment Box is not allowed to be empty"
-              </div>
+              {errors.message && (
+                <div className="contact-error">
+                  "Comment Box is not allowed to be empty"
+                </div>
+              )}
             </>
 
             <Button type="button" className="full-btn" onClick={handleSubmit}>
@@ -106,6 +145,13 @@ const Contact = () => {
           <div className="contact-info">
             <LocationOnIcon />
             <h4 className="contact-info-text">123 fake st, Nowhere</h4>
+          </div>
+
+          <div className="contact-info-socials">
+            <SocialIcon iconType={SOCIAL_TYPE_CLASSES.facebook} />
+            <SocialIcon iconType={SOCIAL_TYPE_CLASSES.youtube} />
+            <SocialIcon iconType={SOCIAL_TYPE_CLASSES.twitter} />
+            <SocialIcon iconType={SOCIAL_TYPE_CLASSES.instagram} />
           </div>
         </div>
       </div>

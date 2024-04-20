@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
+import SocialIcon, { SOCIAL_TYPE_CLASSES } from "../social-icon/SocialIcon";
 
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -89,18 +86,10 @@ function Footer() {
               <SendIcon className="footer-form-icon" />
             </form>
             <div className="footer-social-icons">
-              <div className="social-icon icon-inst">
-                <InstagramIcon />
-              </div>
-              <div className="social-icon icon-face">
-                <FacebookOutlinedIcon />
-              </div>
-              <div className="social-icon icon-twit">
-                <TwitterIcon />
-              </div>
-              <div className="social-icon icon-you">
-                <YouTubeIcon />
-              </div>
+              <SocialIcon iconType={SOCIAL_TYPE_CLASSES.facebook} />
+              <SocialIcon iconType={SOCIAL_TYPE_CLASSES.youtube} />
+              <SocialIcon iconType={SOCIAL_TYPE_CLASSES.twitter} />
+              <SocialIcon iconType={SOCIAL_TYPE_CLASSES.instagram} />
             </div>
           </div>
         </div>
